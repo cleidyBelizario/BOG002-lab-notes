@@ -1,3 +1,4 @@
+import React from 'react'
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -5,29 +6,41 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import UsuarioGoogle from './componentes/loginGoogle';
+import Login from './componentes/loginFire';
+import CrearNotas from './componentes/notas';
+
 
 function App() {
+
   return (
     <Router>
       <div className="App">
-        <h1>Easy - Notes</h1>
+        <Link to="/" className="inicio_link">
+          Inicio
+          <br />
+        </Link>
+        <Link to="/notas" className="notas_link">
+          Notas
+        </Link>
       </div>
       <hr />
       <Switch>
-        <Route path ="/notas">
-          esta es la pagina de crear notas 
+        <Route path="/notas">
+          <CrearNotas />
         </Route>
-        <Route path="/crear">
-        Esta es la pagina para poder crear notas. 
+        <Route path="/home">
+          <h1>hola soy el home </h1>
         </Route>
-        <Route path="/prueba">
-          prueba 1
+        <Route path="/iniciarSesion">
+          <h1>hola soy el home </h1>
         </Route>
         <Route path="/">
-          Pagina de inicio 
+          <Login />
+          <UsuarioGoogle />
         </Route>
       </Switch>
-      </Router>
+    </Router>
   );
 }
 
